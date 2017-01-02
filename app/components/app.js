@@ -1,21 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { EventBox } from './eventBox';
-import moment from 'moment';
 
-export class App extends React.Component {
+class AppInternal extends React.Component {
     render() {
-        var testEvent = {
-            name: "Test event",
-            nextInstance: moment().subtract(10, 'days'),
-            displayFormat: "dddd, MMMM Do, YYYY"
-        };
+        var eventBoxes = this.props.events.map((e) => <EventBox event={ e } />);
         return (
             <div>
                 <h1>{this.props.title}</h1>
                 <div id="container">
-                    <EventBox event={ testEvent } />
+                    {eventBoxes}
                 </div>
             </div>
         );
     }
 }
+
+export const App = connect(
+    function mapStateToProps(state) {
+        return { events: state.events };
+    }
+)(AppInternal);
