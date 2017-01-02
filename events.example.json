@@ -1,0 +1,27 @@
+[
+{
+    "name": "An event that repeats every year",
+    "repeat": "year",
+    "startTime": "2002-02-28",
+    "_comment": "This field is ignored so feel free to leave comments here"
+},
+{
+    "name": "An event that repeats every month",
+    "repeat": "month",
+    "startTime": "2008-04-09",
+    "_comment": "Valid values for repeat are 'year', 'month', 'week', 'day', 'hour', and 'minute'"
+},
+{
+    "name": "An event that only happens once",
+    "repeat": "once",
+    "startTime": "2017-01-05T11:00:00-05:00",
+    "_comment": "Start time can be any ISO8601 timestamp or date-ish string"
+},
+{
+    "name": "An event with a custom display format",
+    "repeat": "once",
+    "startTime": "2017-01-07T19:00:00-05:00",
+    "displayFormat": "dddd, MMMM Do, YYYY, h:mm a",
+    "_comment": "This event overrides the default date display, and defines its own. Format strings are anything supported by moment.js"
+}
+]

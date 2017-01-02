@@ -1,0 +1,28 @@
+body {
+    background-color: #223;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 8px;
+    color: white;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+div.event {
+    border: 1px solid #99a;
+    box-sizing: border-box;
+    flex-basis: auto;
+    width: 49%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+div.event > h3 {
+    margin-top: 0;
+}
