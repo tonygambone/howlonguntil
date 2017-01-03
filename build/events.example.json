@@ -23,5 +23,12 @@
     "startTime": "2017-01-07T19:00:00-05:00",
     "displayFormat": "dddd, MMMM Do, YYYY, h:mm a",
     "_comment": "This event overrides the default date display, and defines its own. Format strings are anything supported by moment.js"
+},
+{
+    "name": "An old event that still gets displayed",
+    "repeat": "once",
+    "startTime": "2010-01-01T00:00:00-05:00",
+    "hideAfter": [20, "years"],
+    "_comment": "By default, one-time events are hidden after one day. 'hideAfter' is used to change this."
 }
 ]

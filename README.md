@@ -6,11 +6,19 @@ Add birthdays, holidays, trips, and events to the list, and they automatically g
 
 ## Usage
 
-Configure events by adding an `events.json` file - see `events.example.json` for possibilities.
+Configure events by adding a `build/events.json` file - see `build/events.example.json` for possibilities.
 
-Serve the files from the web server or install and use `http-server` using npm:
+Initial build of the application:
 
 ```sh
 npm install
+npm run build
+```
+
+Run the application in the webpack dev server:
+
+```sh
 npm start
 ```
+
+Or just serve the static files with `build/` as the web root.

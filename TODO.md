@@ -21,3 +21,7 @@
 * refresh button
 * show current time
 
+### Internals
+
+* Immutable.js
+* Production build

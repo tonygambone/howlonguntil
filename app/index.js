@@ -2,24 +2,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { App } from './components/app';
-import moment from 'moment';
+import reducer from './reducers';
+import Actions from './actions';
+import dataService from './services/data';
+import eventService from './services/event';
 import './app.css';
 
 const store = createStore(
-    (s,a) => s, // no actions yet
-    { events:
-        [{ // test data
-            name: "Test event 1",
-            nextInstance: moment().subtract(10, 'days'),
-            displayFormat: "dddd, MMMM Do, YYYY"
-        },{
-            name: "Test event 2",
-            nextInstance: moment().subtract(9, 'days'),
-            displayFormat: "dddd, MMMM Do, YYYY"
-        }]
-    }
+    reducer,
+    undefined,
+    applyMiddleware(dataService, eventService)
 );
 
 render(
@@ -28,3 +22,9 @@ render(
     </Provider>,
     document.getElementById('app')
 );
+
+store.dispatch({ type: Actions.FETCH });
+
+setInterval(() => {
+    store.dispatch({ type: Actions.TICK });
+}, 1000);

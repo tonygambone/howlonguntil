@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { EventBox } from './eventBox';
+import { fetchEvents } from '../actions';
 
 class AppInternal extends React.Component {
+    headerClicked() {
+        this.props.dispatch(fetchEvents());
+    }
+
     render() {
-        var eventBoxes = this.props.events.map((e) => <EventBox event={ e } />);
+        var eventBoxes = this.props.events.map((e) => <EventBox key={e.id} event={e} elapsed={this.props.elapsed} />);
         return (
             <div>
-                <h1>{this.props.title}</h1>
+                <h1 onClick={this.headerClicked.bind(this)}>{this.props.title}</h1>
                 <div id="container">
                     {eventBoxes}
                 </div>
@@ -18,6 +23,6 @@ class AppInternal extends React.Component {
 
 export const App = connect(
     function mapStateToProps(state) {
-        return { events: state.events };
+        return { events: state.events, elapsed: state.elapsed };
     }
 )(AppInternal);

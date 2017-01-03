@@ -1,6 +1,5 @@
 import React from 'react';
-import moment from 'moment';
-require('moment-duration-format');
+import { moment } from '../shims';
 
 // get a string that shows the remaining time (or time since)
 function timeRemaining(target) {
