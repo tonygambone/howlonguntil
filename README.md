@@ -4,6 +4,13 @@ A web app to show how long until various upcoming events. I get this question a 
 
 Add birthdays, holidays, trips, and events to the list, and they automatically get updated in real time.
 
+Built with:
+
+* React
+* Redux
+* moment.js
+* Webpack
+
 ## Usage
 
 Configure events by adding a `build/events.json` file - see `build/events.example.json` for possibilities.
