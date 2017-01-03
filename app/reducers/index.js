@@ -5,6 +5,7 @@ const initialState = { events: [], elapsed: 0 };
 
 export default (state = initialState, action) => {
     if (!state) { state = initialState };
+    if (!action) return state;
     switch (action.type) {
         case Actions.EVENTS_RECEIVED:
             return {
