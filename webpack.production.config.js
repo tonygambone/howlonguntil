@@ -18,10 +18,8 @@ function isVendor(module) {
 }
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'cheap-module-source-map',
     entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
         path.join(__dirname, 'app/index.js')
     ],
     output: {
@@ -42,11 +40,10 @@ module.exports = {
             minChunks: isVendor
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.IgnorePlugin(/^\.\/(lang|locale)$/, /moment$/),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('development')
+          'process.env.NODE_ENV': JSON.stringify('production')
         })
     ],
     module: {
