@@ -1,0 +1,10 @@
+exports[`the internal app component matches the basic snapshot 1`] = `
+<div>
+  <h1
+    onClick={[Function]}>
+    test title
+  </h1>
+  <div
+    id="container" />
+</div>
+`;

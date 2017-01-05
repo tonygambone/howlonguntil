@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { EventBox } from './eventBox';
 import { fetchEvents } from '../actions';
 
-class AppInternal extends React.Component {
+export class AppInternal extends React.Component {
     headerClicked() {
         this.props.dispatch(fetchEvents());
     }
